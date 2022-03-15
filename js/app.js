@@ -27,13 +27,23 @@ const numberOfSections = sections.length;
 const PageHeader = document.querySelector(".page__header");
 const nav = document.querySelector(".navbar__menu");
 const navList = document.querySelector("#navbar__list");
+
 console.log(PageHeader);
 /**
  * End Global Variables
  * Start Helper Functions
  *
  */
-
+const createNewAnchors = () => {
+  for (const section of sections) {
+    const newListItem = document.createElement("li");
+    const newAnchor = document.createElement("a");
+    newAnchor.classList.add("menu__link");
+    newListItem.appendChild(newAnchor);
+    console.log(newListItem);
+  }
+};
+createNewAnchors();
 /**
  * End Helper Functions
  * Begin Main Functions
