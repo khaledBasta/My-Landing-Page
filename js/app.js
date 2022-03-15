@@ -27,7 +27,6 @@ const numberOfSections = sections.length;
 const PageHeader = document.querySelector(".page__header");
 const nav = document.querySelector(".navbar__menu");
 const navList = document.querySelector("#navbar__list");
-const fragment = document.createDocumentFragment();
 console.log(navList);
 /**
  * End Global Variables
@@ -35,6 +34,7 @@ console.log(navList);
  *
  */
 const createNewAnchors = () => {
+  const fragment = document.createDocumentFragment();
   for (const section of sections) {
     const content = section.getAttribute("data-nav");
     const newListItem = document.createElement("li");
@@ -45,6 +45,7 @@ const createNewAnchors = () => {
     fragment.appendChild(newListItem);
     console.log(content);
   }
+  return fragment;
 };
 /**
  * End Helper Functions
@@ -54,8 +55,8 @@ const createNewAnchors = () => {
 
 // build the nav
 const buildNav = () => {
-  createNewAnchors();
-  navList.appendChild(fragment);
+  const newAnchors = createNewAnchors();
+  navList.appendChild(newAnchors);
 };
 buildNav();
 // Add class 'active' to section when near top of viewport
