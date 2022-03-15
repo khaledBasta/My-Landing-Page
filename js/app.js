@@ -27,7 +27,7 @@ const numberOfSections = sections.length;
 const PageHeader = document.querySelector(".page__header");
 const nav = document.querySelector(".navbar__menu");
 const navList = document.querySelector("#navbar__list");
-
+const fragment = document.createDocumentFragment();
 console.log(PageHeader);
 /**
  * End Global Variables
@@ -40,7 +40,8 @@ const createNewAnchors = () => {
     const newAnchor = document.createElement("a");
     newAnchor.classList.add("menu__link");
     newListItem.appendChild(newAnchor);
-    console.log(newListItem);
+    fragment.appendChild(newListItem);
+    console.log(fragment);
   }
 };
 createNewAnchors();
