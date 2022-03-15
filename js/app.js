@@ -28,7 +28,7 @@ const PageHeader = document.querySelector(".page__header");
 const nav = document.querySelector(".navbar__menu");
 const navList = document.querySelector("#navbar__list");
 const fragment = document.createDocumentFragment();
-console.log(PageHeader);
+console.log(navList);
 /**
  * End Global Variables
  * Start Helper Functions
@@ -44,7 +44,6 @@ const createNewAnchors = () => {
     console.log(fragment);
   }
 };
-createNewAnchors();
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -52,7 +51,11 @@ createNewAnchors();
  */
 
 // build the nav
-
+const buildNav = () => {
+  createNewAnchors();
+  navList.appendChild(fragment);
+};
+buildNav();
 // Add class 'active' to section when near top of viewport
 
 // Scroll to anchor ID using scrollTO event
