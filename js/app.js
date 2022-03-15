@@ -36,12 +36,14 @@ console.log(navList);
  */
 const createNewAnchors = () => {
   for (const section of sections) {
+    const content = section.getAttribute("data-nav");
     const newListItem = document.createElement("li");
     const newAnchor = document.createElement("a");
     newAnchor.classList.add("menu__link");
+    newAnchor.textContent = content;
     newListItem.appendChild(newAnchor);
     fragment.appendChild(newListItem);
-    console.log(fragment);
+    console.log(content);
   }
 };
 /**
