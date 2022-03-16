@@ -55,8 +55,11 @@ const generateAnchors = () => {
 const isVisible = (el) => {
   const elementBounding = el.getBoundingClientRect();
   console.log(elementBounding.top, elementBounding.bottom, window.innerHeight);
+  return (
+    elementBounding.top >= 0 && elementBounding.bottom <= window.innerHeight
+  );
 };
-isVisible(sections[2]);
+console.log(isVisible(sections[1]));
 /**
  * End Helper Functions
  * Begin Main Functions
