@@ -27,7 +27,7 @@ const numberOfSections = sections.length;
 const PageHeader = document.querySelector(".page__header");
 const nav = document.querySelector(".navbar__menu");
 const navList = document.querySelector("#navbar__list");
-console.log(navList);
+// console.log(navList);
 /**
  * End Global Variables
  * Start Helper Functions
@@ -46,13 +46,13 @@ const generateAnchors = () => {
     newAnchor.textContent = content;
     newListItem.appendChild(newAnchor);
     fragment.appendChild(newListItem);
-    console.log(link);
+    // console.log(link);
   }
   return fragment;
 };
 
 // Define isVisible function to detect is it visible in the viewport
-const isVisible = (sections) => {
+const isVisible = function () {
   for (const section of sections) {
     const elementBounding = section.getBoundingClientRect();
     console.log(
@@ -66,7 +66,7 @@ const isVisible = (sections) => {
     }
   }
 };
-console.log(isVisible(sections));
+// console.log(isVisible(sections));
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -94,3 +94,23 @@ buildNav();
 // Scroll to section on link click
 
 // Set sections as active
+document.addEventListener(
+  "scroll",
+  function () {
+    for (const section of sections) {
+      const elementBounding = section.getBoundingClientRect();
+      console.log(`
+    ${section}
+      ${elementBounding.top},
+      ${elementBounding.bottom},
+      ${window.innerHeight}
+      `);
+
+      if (elementBounding.top >= 0 && elementBounding.top <= 200) {
+        console.log("true");
+        return true;
+      }
+    }
+  },
+  false
+);
