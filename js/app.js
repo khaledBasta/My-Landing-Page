@@ -68,6 +68,7 @@ const isVisible = function () {
     }
   }
 };
+
 // console.log(isVisible(sections));
 /**
  * End Helper Functions
@@ -111,4 +112,8 @@ const addActive = (section) => {
 document.addEventListener("scroll", function () {
   const visibleSection = isVisible();
   addActive(visibleSection);
+  console.log(window.scrollY);
+  if (window.scrollY === 0) {
+    sections[0].classList.add("active");
+  }
 });
