@@ -55,13 +55,15 @@ const generateAnchors = () => {
 const isVisible = function () {
   for (const section of sections) {
     const elementBounding = section.getBoundingClientRect();
-    console.log(
-      elementBounding.top,
-      elementBounding.bottom,
-      window.innerHeight
-    );
+    console.log(`
+    ${section}
+      ${elementBounding.top},
+      ${elementBounding.bottom},
+      ${window.innerHeight}
+      `);
 
-    if (elementBounding.top >= 0 && elementBounding.top <= 200) {
+    if (elementBounding.top >= 0 && elementBounding.top <= 400) {
+      console.log("true");
       return true;
     }
   }
@@ -94,23 +96,4 @@ buildNav();
 // Scroll to section on link click
 
 // Set sections as active
-document.addEventListener(
-  "scroll",
-  function () {
-    for (const section of sections) {
-      const elementBounding = section.getBoundingClientRect();
-      console.log(`
-    ${section}
-      ${elementBounding.top},
-      ${elementBounding.bottom},
-      ${window.innerHeight}
-      `);
-
-      if (elementBounding.top >= 0 && elementBounding.top <= 200) {
-        console.log("true");
-        return true;
-      }
-    }
-  },
-  false
-);
+document.addEventListener("scroll", isVisible);
