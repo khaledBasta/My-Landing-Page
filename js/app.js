@@ -33,7 +33,7 @@ console.log(navList);
  * Start Helper Functions
  *
  */
-// Define generateAnchors function to create anchors
+// Define generateAnchors function to generate anchors
 const generateAnchors = () => {
   const fragment = document.createDocumentFragment();
   for (const section of sections) {
@@ -51,6 +51,12 @@ const generateAnchors = () => {
   return fragment;
 };
 
+// Define isVisible function to detect is it visible in the viewport
+const isVisible = (el) => {
+  const elementBounding = el.getBoundingClientRect();
+  console.log(elementBounding.top, elementBounding.bottom, window.innerHeight);
+};
+isVisible(sections[2]);
 /**
  * End Helper Functions
  * Begin Main Functions
