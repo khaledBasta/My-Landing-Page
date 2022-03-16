@@ -33,6 +33,7 @@ console.log(navList);
  * Start Helper Functions
  *
  */
+// Define createNewAnchors function to create anchors
 const createNewAnchors = () => {
   const fragment = document.createDocumentFragment();
   for (const section of sections) {
