@@ -52,14 +52,21 @@ const generateAnchors = () => {
 };
 
 // Define isVisible function to detect is it visible in the viewport
-const isVisible = (el) => {
-  const elementBounding = el.getBoundingClientRect();
-  console.log(elementBounding.top, elementBounding.bottom, window.innerHeight);
-  return (
-    elementBounding.top >= 0 && elementBounding.bottom <= window.innerHeight
-  );
+const isVisible = (sections) => {
+  for (const section of sections) {
+    const elementBounding = section.getBoundingClientRect();
+    console.log(
+      elementBounding.top,
+      elementBounding.bottom,
+      window.innerHeight
+    );
+
+    if (elementBounding.top >= 0 && elementBounding.top <= 200) {
+      return true;
+    }
+  }
 };
-console.log(isVisible(sections[1]));
+console.log(isVisible(sections));
 /**
  * End Helper Functions
  * Begin Main Functions
