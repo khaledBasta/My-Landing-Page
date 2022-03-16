@@ -38,13 +38,15 @@ const createNewAnchors = () => {
   const fragment = document.createDocumentFragment();
   for (const section of sections) {
     const content = section.getAttribute("data-nav");
+    const link = section.getAttribute("id");
     const newListItem = document.createElement("li");
     const newAnchor = document.createElement("a");
     newAnchor.classList.add("menu__link");
+    newAnchor.setAttribute("href", `#${link}`);
     newAnchor.textContent = content;
     newListItem.appendChild(newAnchor);
     fragment.appendChild(newListItem);
-    console.log(content);
+    console.log(link);
   }
   return fragment;
 };
