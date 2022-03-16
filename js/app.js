@@ -64,7 +64,7 @@ const isVisible = function () {
 
     if (elementBounding.top >= 0 && elementBounding.top <= 400) {
       console.log("true");
-      return true;
+      return section;
     }
   }
 };
@@ -82,7 +82,13 @@ const buildNav = () => {
 };
 buildNav();
 // Add class 'active' to section when near top of viewport
-
+const addActive = (section) => {
+  const prevActive = document.querySelector(".active");
+  prevActive.classList.remove("active");
+  section.classList.add("active");
+  console.log(prevActive);
+};
+addActive(sections[1]);
 // Scroll to anchor ID using scrollTO event
 
 /**
