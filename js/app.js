@@ -33,8 +33,8 @@ console.log(navList);
  * Start Helper Functions
  *
  */
-// Define createNewAnchors function to create anchors
-const createNewAnchors = () => {
+// Define generateAnchors function to create anchors
+const generateAnchors = () => {
   const fragment = document.createDocumentFragment();
   for (const section of sections) {
     const content = section.getAttribute("data-nav");
@@ -50,6 +50,7 @@ const createNewAnchors = () => {
   }
   return fragment;
 };
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -58,7 +59,7 @@ const createNewAnchors = () => {
 
 // build the nav
 const buildNav = () => {
-  const newAnchors = createNewAnchors();
+  const newAnchors = generateAnchors();
   navList.appendChild(newAnchors);
 };
 buildNav();
