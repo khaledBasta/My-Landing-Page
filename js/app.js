@@ -55,12 +55,6 @@ const generateAnchors = () => {
 const isVisible = function () {
   for (const section of sections) {
     const elementBounding = section.getBoundingClientRect();
-    // console.log(`
-    // ${section}
-    //   ${elementBounding.top},
-    //   ${elementBounding.bottom},
-    //   ${window.innerHeight}
-    //   `);
 
     if (elementBounding.top >= -400 && elementBounding.top <= 400) {
       // console.log("true");
@@ -83,17 +77,17 @@ const buildNav = () => {
 };
 buildNav();
 // Add class 'active' to section when near top of viewport
-const addActive = (section) => {
-  const prevActive = document.querySelector(".active");
-  if (prevActive !== null) {
-    if (prevActive.classList.contains("active")) {
-      prevActive.classList.remove("active");
+const addActive = (upcomingActvie) => {
+  const currentActive = document.querySelector(".active");
+  if (currentActive !== null) {
+    if (currentActive.classList.contains("active")) {
+      currentActive.classList.remove("active");
     }
   }
-  if (section !== undefined) {
-    section.classList.add("active");
+  if (upcomingActvie !== undefined) {
+    upcomingActvie.classList.add("active");
   }
-  console.log(prevActive);
+  // console.log(currentActive);
 };
 // addActive(sections[1]);
 // Scroll to anchor ID using scrollTO event
@@ -112,7 +106,6 @@ const addActive = (section) => {
 document.addEventListener("scroll", function () {
   const visibleSection = isVisible();
   addActive(visibleSection);
-  console.log(window.scrollY);
   if (window.scrollY === 0) {
     sections[0].classList.add("active");
   }
