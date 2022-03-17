@@ -51,7 +51,7 @@ const generateAnchors = () => {
   return fragment;
 };
 
-// Define isVisible function to detect is it visible in the viewport
+// Define isVisible function to detect is a section visible in the viewport
 const isVisible = function () {
   for (const section of sections) {
     const elementBounding = section.getBoundingClientRect();
@@ -63,15 +63,7 @@ const isVisible = function () {
   }
 };
 
-const readTopSection = (section) => {
-  const rect = section.getBoundingClientRect();
-  // const top = rect.top + document.body.scrollTop;
-  const top = section.offsetTop;
-  // console.log(rect.top, document.body.scrollTop);
-  console.log(top);
-  return top;
-};
-// readTopSection(sections[0]);
+// readTopValue(sections[0]);
 console.log(sections[0].offsetTop);
 // console.log(isVisible(sections));
 /**
@@ -119,7 +111,7 @@ navList.addEventListener("click", function (evt) {
     evt.preventDefault();
     const id = evt.target.getAttribute("href");
     const highlightedSection = document.querySelector(`${id}`);
-    const topValue = readTopSection(highlightedSection);
+    const topValue = highlightedSection.offsetTop;
     scrolling(topValue);
     console.log(id, highlightedSection, topValue);
   }
