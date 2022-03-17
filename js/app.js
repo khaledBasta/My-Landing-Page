@@ -89,7 +89,12 @@ const addActive = (upComingActvie) => {
 };
 // addActive(sections[1]);
 // Scroll to anchor ID using scrollTO event
-
+const scrolling = () => {
+  window.scrollTo({
+    top: 200,
+    behavior: "smooth",
+  });
+};
 /**
  * End Main Functions
  * Begin Events
