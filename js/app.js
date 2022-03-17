@@ -77,15 +77,13 @@ const buildNav = () => {
 };
 buildNav();
 // Add class 'active' to section when near top of viewport
-const addActive = (upcomingActvie) => {
+const addActive = (upComingActvie) => {
   const currentActive = document.querySelector(".active");
   if (currentActive !== null) {
-    if (currentActive.classList.contains("active")) {
-      currentActive.classList.remove("active");
-    }
+    currentActive.classList.remove("active");
   }
-  if (upcomingActvie !== undefined) {
-    upcomingActvie.classList.add("active");
+  if (upComingActvie !== undefined) {
+    upComingActvie.classList.add("active");
   }
   // console.log(currentActive);
 };
@@ -101,7 +99,12 @@ const addActive = (upcomingActvie) => {
 // Build menu
 
 // Scroll to section on link click
-
+navList.addEventListener("click", function (evt) {
+  if (evt.target.nodeName === "A") {
+    evt.preventDefault();
+    console.log(evt.target.textContent);
+  }
+});
 // Set sections as active
 document.addEventListener("scroll", function () {
   const visibleSection = isVisible();
