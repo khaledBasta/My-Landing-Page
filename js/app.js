@@ -63,6 +63,13 @@ const isVisible = function () {
   }
 };
 
+const readTopSection = (section) => {
+  const rect = section.getBoundingClientRect();
+  const top = rect.top;
+  console.log(top);
+};
+readTopSection(sections[0]);
+
 // console.log(isVisible(sections));
 /**
  * End Helper Functions
@@ -110,6 +117,7 @@ navList.addEventListener("click", function (evt) {
     console.log(evt.target.textContent);
   }
 });
+
 // Set sections as active
 document.addEventListener("scroll", function () {
   const visibleSection = isVisible();
