@@ -65,11 +65,14 @@ const isVisible = function () {
 
 const readTopSection = (section) => {
   const rect = section.getBoundingClientRect();
-  const top = rect.top;
+  // const top = rect.top + document.body.scrollTop;
+  const top = section.offsetTop;
+  // console.log(rect.top, document.body.scrollTop);
   console.log(top);
+  return top;
 };
-readTopSection(sections[0]);
-
+// readTopSection(sections[0]);
+console.log(sections[0].offsetTop);
 // console.log(isVisible(sections));
 /**
  * End Helper Functions
@@ -96,9 +99,9 @@ const addActive = (upComingActvie) => {
 };
 // addActive(sections[1]);
 // Scroll to anchor ID using scrollTO event
-const scrolling = () => {
+const scrolling = (topValue) => {
   window.scrollTo({
-    top: 200,
+    top: topValue,
     behavior: "smooth",
   });
 };
@@ -114,7 +117,11 @@ const scrolling = () => {
 navList.addEventListener("click", function (evt) {
   if (evt.target.nodeName === "A") {
     evt.preventDefault();
-    console.log(evt.target.textContent);
+    const id = evt.target.getAttribute("href");
+    const highlightedSection = document.querySelector(`${id}`);
+    const topValue = readTopSection(highlightedSection);
+    scrolling(topValue);
+    console.log(id, highlightedSection, topValue);
   }
 });
 
