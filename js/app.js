@@ -86,26 +86,20 @@ const buildNav = () => {
 };
 buildNav();
 // Add class 'active' to section when near top of viewport
-const addActive = (upComingActive) => {
-  const currentActive = document.querySelector("section.active");
+const addActive = (upComingActiveSection) => {
+  const currentActiveSection = document.querySelector("section.active");
   let sectionID = "";
-  if (currentActive !== null) {
-    currentActive.classList.remove("active");
-    sectionID = currentActive.getAttribute("id");
-    const currentAnchor = document.querySelector(
-      `.navbar__menu a[href*='${sectionID}']`
-    );
-    currentAnchor.classList.remove("active");
+  if (currentActiveSection !== null) {
+    currentActiveSection.classList.remove("active");
+    const currentActiveAnchor = getSelectedAnchor(currentActiveSection);
+    currentActiveAnchor.classList.remove("active");
   }
-  if (upComingActive !== undefined) {
-    upComingActive.classList.add("active");
-    sectionID = upComingActive.getAttribute("id");
-    const activeAnchor = document.querySelector(
-      `.navbar__menu a[href*='${sectionID}']`
-    );
-    activeAnchor.classList.add("active");
+  if (upComingActiveSection !== undefined) {
+    upComingActiveSection.classList.add("active");
+    const upComingActiveAnchor = getSelectedAnchor(upComingActiveSection);
+    upComingActiveAnchor.classList.add("active");
   }
-  // console.log(currentActive);
+  // console.log(currentActiveSection);
 };
 // addActive(sections[1]);
 // Scroll to anchor ID using scrollTO event
