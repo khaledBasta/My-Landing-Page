@@ -89,6 +89,13 @@ section {
   transition: ease 0.3s all;
 }
 
+/* Highlighted Anchor */
+.navbar__menu a.active {
+  background: #333;
+  color: #fff;
+  transition: ease 0.3s all;
+}
+
 /* Header Styles */
 .page__header {
   background: #fff;
