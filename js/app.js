@@ -62,7 +62,14 @@ const isVisible = function () {
     }
   }
 };
-
+// Define getSelectedAnchor function to get the anchor accodring to the section
+const getSelectedAnchor = (selectedSection) => {
+  const sectionID = selectedSection.getAttribute("id");
+  const selectedAnchor = document.querySelector(
+    `.navbar__menu a[href*='${sectionID}']`
+  );
+  return selectedAnchor;
+};
 // readTopValue(sections[0]);
 console.log(sections[0].offsetTop);
 // console.log(isVisible(sections));
