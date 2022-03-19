@@ -81,11 +81,22 @@ buildNav();
 // Add class 'active' to section when near top of viewport
 const addActive = (upComingActive) => {
   const currentActive = document.querySelector("section.active");
+  let sectionID = "";
   if (currentActive !== null) {
     currentActive.classList.remove("active");
+    sectionID = currentActive.getAttribute("id");
+    const currentAnchor = document.querySelector(
+      `.navbar__menu a[href*='${sectionID}']`
+    );
+    currentAnchor.classList.remove("active");
   }
   if (upComingActive !== undefined) {
     upComingActive.classList.add("active");
+    sectionID = upComingActive.getAttribute("id");
+    const activeAnchor = document.querySelector(
+      `.navbar__menu a[href*='${sectionID}']`
+    );
+    activeAnchor.classList.add("active");
   }
   // console.log(currentActive);
 };
