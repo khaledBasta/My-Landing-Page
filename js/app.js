@@ -83,6 +83,10 @@ console.log(sections[0].offsetTop);
 const buildNav = () => {
   const newAnchors = generateAnchors();
   navList.appendChild(newAnchors);
+  if (window.scrollY === 0) {
+    const firstAnchor = getSelectedAnchor(sections[0]);
+    firstAnchor.classList.add("active");
+  }
 };
 buildNav();
 // Add class 'active' to section when near top of viewport
