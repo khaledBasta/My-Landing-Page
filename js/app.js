@@ -56,7 +56,7 @@ const isVisible = function () {
   for (const section of sections) {
     const elementBounding = section.getBoundingClientRect();
 
-    if (elementBounding.top >= -400 && elementBounding.top <= 470) {
+    if (elementBounding.top >= -400 && elementBounding.top <= 800) {
       // console.log("true");
       return section;
     }
@@ -92,7 +92,6 @@ buildNav();
 // Add class 'active' to section when near top of viewport
 const addActive = (upComingActiveSection) => {
   const currentActiveSection = document.querySelector("section.active");
-  let sectionID = "";
   if (currentActiveSection !== null) {
     currentActiveSection.classList.remove("active");
     const currentActiveAnchor = getSelectedAnchor(currentActiveSection);
