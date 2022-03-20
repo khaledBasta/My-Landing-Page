@@ -239,3 +239,7 @@ section.active .landing__container::after {
     transform: rotate(360deg) translate(-1em) rotate(-360deg);
   }
 }
+
+section.active h2 {
+  color: rgb(238, 238, 55);
+}
