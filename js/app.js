@@ -132,16 +132,18 @@ navList.addEventListener("click", function (evt) {
 // Set sections as active
 document.addEventListener("scroll", function () {
   const visibleSection = isVisible();
-  if (visibleSection !== undefined) {
-    const sectionID = visibleSection.getAttribute("id");
-    const activeAnchor = document.querySelector(
-      `.navbar__menu a[href*='${sectionID}']`
-    );
-    activeAnchor.classList.add("active");
-    console.log(activeAnchor.outerHTML);
-  }
+  // if (visibleSection !== undefined) {
+  //   const sectionID = visibleSection.getAttribute("id");
+  //   const activeAnchor = document.querySelector(
+  //     `.navbar__menu a[href*='${sectionID}']`
+  //   );
+  //   activeAnchor.classList.add("active");
+  //   console.log(activeAnchor.outerHTML);
+  // }
   addActive(visibleSection);
   if (window.scrollY === 0) {
     sections[0].classList.add("active");
+    const firstAnchor = getSelectedAnchor(sections[0]);
+    firstAnchor.classList.add("active");
   }
 });
