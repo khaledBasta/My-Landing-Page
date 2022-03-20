@@ -88,7 +88,7 @@ const buildNav = () => {
     firstAnchor.classList.add("active");
   }
 };
-buildNav();
+// buildNav();
 // Add class 'active' to section when near top of viewport
 const addActive = (upComingActiveSection) => {
   const currentActiveSection = document.querySelector("section.active");
@@ -119,7 +119,9 @@ const scrolling = (topValue) => {
  */
 
 // Build menu
-
+document.addEventListener("DOMContentLoaded", function () {
+  buildNav();
+});
 // Scroll to section on link click
 navList.addEventListener("click", function (evt) {
   if (evt.target.nodeName === "A") {
