@@ -56,7 +56,7 @@ const isVisible = function () {
   for (const section of sections) {
     const elementBounding = section.getBoundingClientRect();
 
-    if (elementBounding.top >= -400 && elementBounding.top <= 400) {
+    if (elementBounding.top >= -400 && elementBounding.top <= 470) {
       // console.log("true");
       return section;
     }
