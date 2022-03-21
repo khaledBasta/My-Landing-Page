@@ -131,6 +131,11 @@ nav.addEventListener("click", function (evt) {
     const topValue = highlightedSection.offsetTop;
     scrolling(topValue);
     console.log(id, highlightedSection, topValue);
+    nav.classList.remove("clicked");
+  }
+  if (evt.target.nodeName === "I") {
+    console.log("mobile menu");
+    nav.classList.toggle("clicked");
   }
 });
 
