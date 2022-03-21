@@ -80,6 +80,7 @@ section {
     /* padding-left: 0;
     margin: 0; */
     text-align: right;
+    display: block;
   }
 }
 
