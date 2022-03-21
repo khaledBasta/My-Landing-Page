@@ -106,13 +106,19 @@ section {
   font-size: 0.8em;
 }
 
+@media only screen and (min-width: 35em) {
+  .navbar__menu .menu__link {
+    font-size: 1em;
+  }
+}
+
 .navbar__menu .menu__link:hover {
   background: #333;
   color: #fff;
   transition: ease 0.3s all;
 }
 
-.navbar__menu a.active {
+.navbar__menu .menu__link.active {
   background: #333;
   color: #fff;
   transition: ease 0.3s all;
