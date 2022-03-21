@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
   buildNav();
 });
 // Scroll to section on link click
-navList.addEventListener("click", function (evt) {
+nav.addEventListener("click", function (evt) {
   if (evt.target.nodeName === "A") {
     evt.preventDefault();
     const id = evt.target.getAttribute("href");
