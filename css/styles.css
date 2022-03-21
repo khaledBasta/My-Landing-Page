@@ -124,7 +124,6 @@ section {
   padding: 1rem;
   font-size: 1.6rem;
   cursor: pointer;
-  text-align: right;
 }
 
 @media only screen and (min-width: 35em) {
