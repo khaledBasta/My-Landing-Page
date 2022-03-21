@@ -75,6 +75,9 @@ section {
   text-align: center;
   display: none;
 }
+.navbar__menu.clicked ul {
+  display: block;
+}
 @media only screen and (min-width: 35em) {
   .navbar__menu ul {
     /* padding-left: 0;
@@ -100,6 +103,7 @@ section {
   font-weight: bold;
   text-decoration: none;
   color: #000;
+  font-size: 0.8em;
 }
 
 .navbar__menu .menu__link:hover {
