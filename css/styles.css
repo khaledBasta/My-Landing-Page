@@ -65,14 +65,32 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+.navbar__menu {
+  display: flex;
+  flex-direction: column;
+}
 .navbar__menu ul {
   padding-left: 0;
   margin: 0;
-  text-align: right;
+  text-align: center;
+  display: none;
+}
+@media only screen and (min-width: 35em) {
+  .navbar__menu ul {
+    /* padding-left: 0;
+    margin: 0; */
+    text-align: right;
+  }
 }
 
 .navbar__menu li {
-  display: inline-block;
+  display: block;
+}
+
+@media only screen and (min-width: 35em) {
+  .navbar__menu li {
+    display: inline-block;
+  }
 }
 
 .navbar__menu .menu__link {
@@ -96,13 +114,12 @@ section {
 }
 
 .burger-menu {
-  display: block;
-  position: absolute;
-  right: 1.6rem;
-  top: 1rem;
+  align-self: flex-end;
   color: #111;
+  padding: 1rem;
   font-size: 1.6rem;
   cursor: pointer;
+  text-align: right;
 }
 
 @media only screen and (min-width: 35em) {
