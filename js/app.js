@@ -144,6 +144,7 @@ nav.addEventListener("click", function (evt) {
 document.addEventListener("scroll", function () {
   const visibleSection = isVisible();
   addActive(visibleSection);
+  nav.classList.remove("clicked");
   if (window.scrollY === 0) {
     sections[0].classList.add("active");
     const firstAnchor = getSelectedAnchor(sections[0]);
