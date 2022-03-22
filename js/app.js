@@ -149,9 +149,14 @@ document.addEventListener("scroll", function () {
     const firstAnchor = getSelectedAnchor(sections[0]);
     firstAnchor.classList.add("active");
   }
-  if (window.scrollY > window.innerHeight) {
+  if (window.scrollY > window.innerHeight - 400) {
     scrollTopButton.classList.add("show");
   } else {
     scrollTopButton.classList.remove("show");
   }
+});
+
+// Scroll to top of the page on button click
+scrollTopButton.addEventListener("click", function () {
+  scrolling(0);
 });
