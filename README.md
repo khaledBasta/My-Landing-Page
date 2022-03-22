@@ -14,4 +14,5 @@ HTML, CSS and Javascript project using javascript to make the page interactive i
 ## Dependencies
 
 - MDN
+- w3schools
 - fontawesome
