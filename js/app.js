@@ -47,7 +47,6 @@ const generateAnchors = () => {
     newAnchor.textContent = content;
     newListItem.appendChild(newAnchor);
     fragment.appendChild(newListItem);
-    // console.log(link);
   }
   return fragment;
 };
@@ -58,12 +57,12 @@ const isVisible = function () {
     const elementBounding = section.getBoundingClientRect();
 
     if (elementBounding.top >= -100 && elementBounding.top <= 800) {
-      // console.log("true");
       return section;
     }
   }
 };
-// Define getSelectedAnchor function to get the anchor accodring to the section
+
+// Define getSelectedAnchor function to get the anchor that's related to a section
 const getSelectedAnchor = (selectedSection) => {
   const sectionID = selectedSection.getAttribute("id");
   const selectedAnchor = document.querySelector(
@@ -71,9 +70,7 @@ const getSelectedAnchor = (selectedSection) => {
   );
   return selectedAnchor;
 };
-// readTopValue(sections[0]);
-console.log(sections[0].offsetTop);
-// console.log(isVisible(sections));
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -84,12 +81,14 @@ console.log(sections[0].offsetTop);
 const buildNav = () => {
   const newAnchors = generateAnchors();
   navList.appendChild(newAnchors);
+
+  // by default if the scroll at the top of the page add class active to the first anchor
   if (window.scrollY === 0) {
     const firstAnchor = getSelectedAnchor(sections[0]);
     firstAnchor.classList.add("active");
   }
 };
-// buildNav();
+
 // Add class 'active' to section when near top of viewport
 const addActive = (upComingActiveSection) => {
   const currentActiveSection = document.querySelector("section.active");
@@ -103,9 +102,8 @@ const addActive = (upComingActiveSection) => {
     const upComingActiveAnchor = getSelectedAnchor(upComingActiveSection);
     upComingActiveAnchor.classList.add("active");
   }
-  // console.log(currentActiveSection);
 };
-// addActive(sections[1]);
+
 // Scroll to anchor ID using scrollTO event
 const scrolling = (topValue) => {
   window.scrollTo({
@@ -113,6 +111,7 @@ const scrolling = (topValue) => {
     behavior: "smooth",
   });
 };
+
 /**
  * End Main Functions
  * Begin Events
@@ -120,36 +119,51 @@ const scrolling = (topValue) => {
  */
 
 // Build menu
-document.addEventListener("DOMContentLoaded", function () {
-  buildNav();
-});
+document.addEventListener("DOMContentLoaded", buildNav);
+
 // Scroll to section on link click
 nav.addEventListener("click", function (evt) {
+  // if the clicked element is an anchor
   if (evt.target.nodeName === "A") {
     evt.preventDefault();
     const id = evt.target.getAttribute("href");
     const highlightedSection = document.querySelector(`${id}`);
+
+    // Get the number of pixels from the top of the closest relatively positioned parent element.
     const topValue = highlightedSection.offsetTop;
+
+    // Scroll to that value
     scrolling(topValue);
-    console.log(id, highlightedSection, topValue);
+
+    // Hide mobile menu when starting scroll
     nav.classList.remove("clicked");
   }
+  // if the clicked element is the icon
   if (evt.target.nodeName === "I") {
-    console.log("mobile menu");
+    // Show and Hide mobile menu when clicking on burger icon
     nav.classList.toggle("clicked");
   }
 });
 
 // Set sections as active
 document.addEventListener("scroll", function () {
-  const visibleSection = isVisible();
-  addActive(visibleSection);
+  // Hide mobile menu when starting scroll
   nav.classList.remove("clicked");
+
+  // get the viewed section in the viewport
+  const visibleSection = isVisible();
+
+  // Add class active to the viewed section
+  addActive(visibleSection);
+
+  // If we reach to the top of the page add class active to the first section and anchor
   if (window.scrollY === 0) {
     sections[0].classList.add("active");
     const firstAnchor = getSelectedAnchor(sections[0]);
     firstAnchor.classList.add("active");
   }
+
+  // Show scrollTopButton when reaching this value at scrolling
   if (window.scrollY > window.innerHeight - 400) {
     scrollTopButton.classList.add("show");
   } else {
