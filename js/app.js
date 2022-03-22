@@ -27,6 +27,7 @@ const numberOfSections = sections.length;
 const PageHeader = document.querySelector(".page__header");
 const nav = document.querySelector(".navbar__menu");
 const navList = document.querySelector("#navbar__list");
+const scrollTopButton = document.querySelector(".scroll-top");
 // console.log(navList);
 /**
  * End Global Variables
@@ -147,5 +148,10 @@ document.addEventListener("scroll", function () {
     sections[0].classList.add("active");
     const firstAnchor = getSelectedAnchor(sections[0]);
     firstAnchor.classList.add("active");
+  }
+  if (window.scrollY > window.innerHeight) {
+    scrollTopButton.classList.add("show");
+  } else {
+    scrollTopButton.classList.remove("show");
   }
 });
